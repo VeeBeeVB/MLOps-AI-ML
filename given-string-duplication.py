@@ -1,18 +1,15 @@
 def find_duplicates(s):
-    duplicates = []
-    length = len(s)
+    duplicates = {}
+    for char in s:
+        if char in duplicates:
+            duplicates[char] += 1
+        else:
+            duplicates[char] = 1
 
-    for i in range(length):
-        count = 1
-        for j in range(i + 1, length):
-            if s[i] == s[j] and s[i] not in duplicates:
-                count += 1
-                print(count)
-        if count > 1 and s[i] not in duplicates:
-            duplicates.append(s[i])
-
-    return duplicates
+    # Filter characters that appear more than once
+    dup_chars = [char for char, count in duplicates.items() if count > 1]
+    return dup_chars
 
 # Example usage
-string = "Vijayabaskar"
+string = "programming"
 print("Duplicate characters:", find_duplicates(string))
