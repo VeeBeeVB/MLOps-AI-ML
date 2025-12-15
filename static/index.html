@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Diabetes Progression Prediction</h1>
+        <p>Enter the 10 features for diabetes prediction:</p>
+        <form id="predictionForm">
+            <div class="input-group">
+                <label for="feature0">Feature 1:</label>
+                <input type="number" step="any" id="feature0" name="feature0" required>
+            </div>
+            <div class="input-group">
+                <label for="feature1">Feature 2:</label>
+                <input type="number" step="any" id="feature1" name="feature1" required>
+            </div>
+            <div class="input-group">
+                <label for="feature2">Feature 3:</label>
+                <input type="number" step="any" id="feature2" name="feature2" required>
+            </div>
+            <div class="input-group">
+                <label for="feature3">Feature 4:</label>
+                <input type="number" step="any" id="feature3" name="feature3" required>
+            </div>
+            <div class="input-group">
+                <label for="feature4">Feature 5:</label>
+                <input type="number" step="any" id="feature4" name="feature4" required>
+            </div>
+            <div class="input-group">
+                <label for="feature5">Feature 6:</label>
+                <input type="number" step="any" id="feature5" name="feature5" required>
+            </div>
+            <div class="input-group">
+                <label for="feature6">Feature 7:</label>
+                <input type="number" step="any" id="feature6" name="feature6" required>
+            </div>
+            <div class="input-group">
+                <label for="feature7">Feature 8:</label>
+                <input type="number" step="any" id="feature7" name="feature7" required>
+            </div>
+            <div class="input-group">
+                <label for="feature8">Feature 9:</label>
+                <input type="number" step="any" id="feature8" name="feature8" required>
+            </div>
+            <div class="input-group">
+                <label for="feature9">Feature 10:</label>
+                <input type="number" step="any" id="feature9" name="feature9" required>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
