@@ -36,12 +36,6 @@ with mlflow.start_run(run_name="Diabetes_Prediction_RF"):
     predictions = model.predict(X_test)
     accuracy = model.score(X_test, y_test)
 
-    # Log parameters, metrics, and model to MLflow
-    mlflow.log_param("model_type", "RandomForestClassifier")
-    mlflow.log_metric('accuracy', accuracy)
-    mlflow.sklearn.log_model(model, name="model", input_example=X_test[:2])
-    print(f"Logged model with Accuracy: {accuracy}")    
-
     # Save and log the plot as an artifact
     plt.figure()
     plt.bar(range(len(model.feature_importances_)), model.feature_importances_)
@@ -50,7 +44,12 @@ with mlflow.start_run(run_name="Diabetes_Prediction_RF"):
     plt.ylabel("Importance")
     plt.savefig("feature_importances.png")
     mlflow.log_artifact("feature_importances.png")
-    mlflow.log_artifact("sample_file.html")
+
+    # Log parameters, metrics, and model to MLflow
+    mlflow.log_param("model_type", "RandomForestClassifier")
+    mlflow.log_metric('accuracy', accuracy)
+    mlflow.sklearn.log_model(model, input_example=X_test[:2])
+    print(f"Logged model with Accuracy: {accuracy}")    
 
     # Get the model URI for registration
     model_uri = f"runs:/{mlflow.active_run().info.run_id}/model"

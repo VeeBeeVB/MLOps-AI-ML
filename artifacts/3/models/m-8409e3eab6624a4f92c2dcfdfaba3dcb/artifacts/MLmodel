@@ -1,0 +1,32 @@
+artifact_path: file:C:/Users/mail2/OneDrive/Desktop/MY_DRIVE/MLOps/Codebase-Online-Training/MLOps-concepts-09Nov2025/MLOps-AI-ML/artifacts/3/models/m-8409e3eab6624a4f92c2dcfdfaba3dcb/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.12
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+is_signature_from_type_hint: false
+mlflow_version: 3.6.0
+model_id: m-8409e3eab6624a4f92c2dcfdfaba3dcb
+model_size_bytes: 19500277
+model_uuid: m-8409e3eab6624a4f92c2dcfdfaba3dcb
+prompts: null
+run_id: 605b74f7c58d4d8e873fed8f4dd3d459
+saved_input_example_info:
+  artifact_path: input_example.json
+  serving_input_path: serving_input_example.json
+  type: ndarray
+signature:
+  inputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1, 10]}}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-12-16 19:22:53.460794'
