@@ -1,4 +1,4 @@
-#Run MLFLOW 
+#Start MLFLOW Server
 python -m mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./artifacts
 
 ####################################################################
@@ -48,5 +48,25 @@ http://127.0.0.1:8000/
 http://127.0.0.1:8000/docs
 
 
-################################### MLFLOW Ubuntu Commands ###################################
-# Start MLflow server
+################################### Airflow Ubuntu Commands ###################################
+# Start Airflow Server
+source airflow-env/bin/activate
+export AIRFLOW_HOME=~/airflow
+airflow db init
+airflow users create --username admin --firstname Admin --lastname User --role Admin --email Admin
+airflow standalone
+
+airflow webserver --port 8080
+airflow scheduler   
+
+# Modify DAGs folder
+cd /root/airflow
+vi airflow.cfg -> dags_folder = /root/airflow_scripts/dags
+
+# Trigger DAG
+airflow dags trigger <dag_id>
+
+# This will tell us the real error 
+airflow dags list-import-errors
+
+

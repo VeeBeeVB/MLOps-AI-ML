@@ -25,7 +25,6 @@ from mlflow.utils.environment import _mlflow_conda_env
 import matplotlib.pyplot as plt
 
 def model_training():
-    pass
 
     # Initialize MLflow tracking and set experiment name
     mlflow.set_tracking_uri("http://localhost:5000")
