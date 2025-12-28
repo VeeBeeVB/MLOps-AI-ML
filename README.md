@@ -18,6 +18,9 @@ mlflow-docker/
 ├── requirements.txt
 └── mlruns/          (will store experiments)
 
+- > mkdir mlflow-docker
+  > mkdir mlruns
+  > New-Item Dockerfile -ItemType File
 - Create requirements.txt just mention "mlflow"
 - Create the Dockerfile
 
@@ -38,6 +41,10 @@ CMD ["mlflow", "server", \
      "--default-artifact-root", "/mlflow/mlruns", \
      "--host", "0.0.0.0", \
      "--port", "5000"]
+
+> docker build -t mlflow-server .
+> docker images
+> docker run -d -p 5000:5000 -v C:\Users\mail2\OneDrive\Desktop\MY_DRIVE\MLOps\Codebase-Online-Training\mlflow-docker\mlruns:/mlflow/mlruns --name mlflow mlflow-server
 
 **Step3: Log Experiments from Python**
 pip install mlflow
