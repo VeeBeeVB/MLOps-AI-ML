@@ -21,6 +21,16 @@ mlflow-docker/
 - > mkdir mlflow-docker
   > mkdir mlruns
   > New-Item Dockerfile -ItemType File
+
+**Sample Mlflow Experiment script** Save under mlflow-docker root folder/
+import mlflow
+
+mlflow.set_tracking_uri("http://localhost:5000")
+mlflow.set_experiment("docker-test")
+
+with mlflow.start_run():
+    mlflow.log_param("learning_rate", 0.01)
+    mlflow.log_metric("accuracy", 0.95)
 - Create requirements.txt just mention "mlflow"
 - Create the Dockerfile
 
@@ -42,27 +52,11 @@ CMD ["mlflow", "server", \
      "--host", "0.0.0.0", \
      "--port", "5000"]
 
-> docker build -t mlflow-server .
+> docker build -t mlflow-server_automated .
 > docker images
-> docker run -d -p 5000:5000 -v C:\Users\mail2\OneDrive\Desktop\MY_DRIVE\MLOps\Codebase-Online-Training\mlflow-docker\mlruns:/mlflow/mlruns --name mlflow mlflow-server
+> docker run -d -p 5000:5000 -v C:\Users\mail2\OneDrive\Desktop\MY_DRIVE\MLOps\Codebase-Online-Training\mlflow-docker\mlruns:/mlflow/mlruns --name mlflow2 mlflow-server_automated
 
-**Step3: Log Experiments from Python**
-pip install mlflow
-
-**Sample Mlflow Experiment script** Save under mlflow-runs/
-import mlflow
-
-mlflow.set_tracking_uri("http://localhost:5000")
-mlflow.set_experiment("docker-test")
-
-with mlflow.start_run():
-    mlflow.log_param("learning_rate", 0.01)
-    mlflow.log_metric("accuracy", 0.95)
-
-**Execute the experiment**
-python mlflow_first_experiment.py
-
-Refresh UI → experiment appears ✔
+-------> Refresh UI → experiment appears ✔
 
 
 
