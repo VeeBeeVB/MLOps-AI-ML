@@ -1,0 +1,56 @@
+[2026-01-01T19:17:37.671+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-01-01T19:17:37.781+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_sample.train_model manual__2026-01-01T19:17:35.821076+00:00 [queued]>
+[2026-01-01T19:17:37.817+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_sample.train_model manual__2026-01-01T19:17:35.821076+00:00 [queued]>
+[2026-01-01T19:17:37.821+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-01-01T19:17:37.872+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonVirtualenvOperator): train_model> on 2026-01-01 19:17:35.821076+00:00
+[2026-01-01T19:17:37.889+0000] {standard_task_runner.py:64} INFO - Started process 1065 to run task
+[2026-01-01T19:17:37.899+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'train_model_sample', 'train_model', 'manual__2026-01-01T19:17:35.821076+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/model_sample_dags.py', '--cfg-path', '/tmp/tmpajsbpdg3']
+[2026-01-01T19:17:37.910+0000] {standard_task_runner.py:91} INFO - Job 10: Subtask train_model
+[2026-01-01T19:17:38.075+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_sample.train_model manual__2026-01-01T19:17:35.821076+00:00 [running]> on host ea46e2a228ee
+[2026-01-01T19:17:38.346+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='train_model_sample' AIRFLOW_CTX_TASK_ID='train_model' AIRFLOW_CTX_EXECUTION_DATE='2026-01-01T19:17:35.821076+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-01-01T19:17:35.821076+00:00'
+[2026-01-01T19:17:38.350+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-01-01T19:17:38.401+0000] {baseoperator.py:400} WARNING - PythonVirtualenvOperator.execute cannot be called outside TaskInstance!
+[2026-01-01T19:17:38.407+0000] {process_utils.py:183} INFO - Executing cmd: /home/***/.local/bin/python -m virtualenv /tmp/venvm099mwna --python=python
+[2026-01-01T19:17:38.411+0000] {process_utils.py:187} INFO - Output:
+[2026-01-01T19:17:42.479+0000] {process_utils.py:191} INFO - created virtual environment CPython3.10.14.final.0-64 in 1490ms
+[2026-01-01T19:17:42.482+0000] {process_utils.py:191} INFO -   creator CPython3Posix(dest=/tmp/venvm099mwna, clear=False, no_vcs_ignore=False, global=False)
+[2026-01-01T19:17:42.485+0000] {process_utils.py:191} INFO -   seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/***/.local/share/virtualenv)
+[2026-01-01T19:17:42.488+0000] {process_utils.py:191} INFO -     added seed packages: pip==25.3, setuptools==80.9.0, wheel==0.45.1
+[2026-01-01T19:17:42.490+0000] {process_utils.py:191} INFO -   activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+[2026-01-01T19:17:42.719+0000] {process_utils.py:183} INFO - Executing cmd: /tmp/venvm099mwna/bin/pip install -r /tmp/venvm099mwna/requirements.txt
+[2026-01-01T19:17:42.727+0000] {process_utils.py:187} INFO - Output:
+[2026-01-01T19:17:47.952+0000] {process_utils.py:191} INFO - ERROR: Invalid requirement: '/opt/***/ml': Expected package name at the start of dependency specifier
+[2026-01-01T19:17:47.955+0000] {process_utils.py:191} INFO -     /opt/***/ml
+[2026-01-01T19:17:47.958+0000] {process_utils.py:191} INFO -     ^ (from line 1 of /tmp/venvm099mwna/requirements.txt)
+[2026-01-01T19:17:47.962+0000] {process_utils.py:191} INFO - Hint: It looks like a path. File '/opt/***/ml' does not exist.
+[2026-01-01T19:17:48.304+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-01-01T19:17:48.307+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 437, in execute
+    return super().execute(context=serializable_context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 757, in execute_callable
+    self._prepare_venv(tmp_path)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 669, in _prepare_venv
+    prepare_virtualenv(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/python_virtualenv.py", line 119, in prepare_virtualenv
+    execute_in_subprocess(pip_cmd)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/process_utils.py", line 172, in execute_in_subprocess
+    execute_in_subprocess_with_kwargs(cmd, cwd=cwd)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/process_utils.py", line 195, in execute_in_subprocess_with_kwargs
+    raise subprocess.CalledProcessError(exit_code, cmd)
+subprocess.CalledProcessError: Command '['/tmp/venvm099mwna/bin/pip', 'install', '-r', '/tmp/venvm099mwna/requirements.txt']' returned non-zero exit status 1.
+[2026-01-01T19:17:48.333+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=train_model_sample, task_id=train_model, run_id=manual__2026-01-01T19:17:35.821076+00:00, execution_date=20260101T191735, start_date=20260101T191737, end_date=20260101T191748
+[2026-01-01T19:17:48.389+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 10 for task train_model (Command '['/tmp/venvm099mwna/bin/pip', 'install', '-r', '/tmp/venvm099mwna/requirements.txt']' returned non-zero exit status 1.; 1065)
+[2026-01-01T19:17:48.414+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-01-01T19:17:48.473+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-01-01T19:17:48.481+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

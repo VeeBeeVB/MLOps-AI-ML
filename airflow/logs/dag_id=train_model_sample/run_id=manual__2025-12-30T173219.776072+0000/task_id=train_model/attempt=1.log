@@ -1,0 +1,261 @@
+[2025-12-30T17:32:20.686+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-30T17:32:20.752+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_sample.train_model manual__2025-12-30T17:32:19.776072+00:00 [queued]>
+[2025-12-30T17:32:20.766+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_sample.train_model manual__2025-12-30T17:32:19.776072+00:00 [queued]>
+[2025-12-30T17:32:20.768+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-12-30T17:32:20.785+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonVirtualenvOperator): train_model> on 2025-12-30 17:32:19.776072+00:00
+[2025-12-30T17:32:20.795+0000] {standard_task_runner.py:64} INFO - Started process 310 to run task
+[2025-12-30T17:32:20.806+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'train_model_sample', 'train_model', 'manual__2025-12-30T17:32:19.776072+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/model_sample_dags.py', '--cfg-path', '/tmp/tmpw65aqybu']
+[2025-12-30T17:32:20.813+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask train_model
+[2025-12-30T17:32:20.961+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_sample.train_model manual__2025-12-30T17:32:19.776072+00:00 [running]> on host ea46e2a228ee
+[2025-12-30T17:32:21.087+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='train_model_sample' AIRFLOW_CTX_TASK_ID='train_model' AIRFLOW_CTX_EXECUTION_DATE='2025-12-30T17:32:19.776072+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-30T17:32:19.776072+00:00'
+[2025-12-30T17:32:21.089+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-30T17:32:21.129+0000] {baseoperator.py:400} WARNING - PythonVirtualenvOperator.execute cannot be called outside TaskInstance!
+[2025-12-30T17:32:21.132+0000] {process_utils.py:183} INFO - Executing cmd: /home/***/.local/bin/python -m virtualenv /tmp/venvnk8eyu8k --python=python
+[2025-12-30T17:32:21.135+0000] {process_utils.py:187} INFO - Output:
+[2025-12-30T17:32:24.222+0000] {process_utils.py:191} INFO - created virtual environment CPython3.10.14.final.0-64 in 1819ms
+[2025-12-30T17:32:24.223+0000] {process_utils.py:191} INFO -   creator CPython3Posix(dest=/tmp/venvnk8eyu8k, clear=False, no_vcs_ignore=False, global=False)
+[2025-12-30T17:32:24.224+0000] {process_utils.py:191} INFO -   seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/***/.local/share/virtualenv)
+[2025-12-30T17:32:24.225+0000] {process_utils.py:191} INFO -     added seed packages: pip==24.1, setuptools==70.1.0, wheel==0.43.0
+[2025-12-30T17:32:24.225+0000] {process_utils.py:191} INFO -   activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+[2025-12-30T17:32:24.313+0000] {process_utils.py:183} INFO - Executing cmd: /tmp/venvnk8eyu8k/bin/pip install -r /tmp/venvnk8eyu8k/requirements.txt
+[2025-12-30T17:32:24.315+0000] {process_utils.py:187} INFO - Output:
+[2025-12-30T17:32:26.492+0000] {process_utils.py:191} INFO - Collecting mlflow==2.10.2 (from -r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:26.627+0000] {process_utils.py:191} INFO -   Downloading mlflow-2.10.2-py3-none-any.whl.metadata (13 kB)
+[2025-12-30T17:32:27.029+0000] {process_utils.py:191} INFO - Collecting pandas (from -r /tmp/venvnk8eyu8k/requirements.txt (line 2))
+[2025-12-30T17:32:27.051+0000] {process_utils.py:191} INFO -   Downloading pandas-2.3.3-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (91 kB)
+[2025-12-30T17:32:27.098+0000] {process_utils.py:191} INFO -      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.2/91.2 kB 1.9 MB/s eta 0:00:00
+[2025-12-30T17:32:27.382+0000] {process_utils.py:191} INFO - Collecting scikit-learn (from -r /tmp/venvnk8eyu8k/requirements.txt (line 3))
+[2025-12-30T17:32:27.423+0000] {process_utils.py:191} INFO -   Downloading scikit_learn-1.7.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (11 kB)
+[2025-12-30T17:32:27.544+0000] {process_utils.py:191} INFO - Collecting click<9,>=7.0 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:27.601+0000] {process_utils.py:191} INFO -   Downloading click-8.3.1-py3-none-any.whl.metadata (2.6 kB)
+[2025-12-30T17:32:27.719+0000] {process_utils.py:191} INFO - Collecting cloudpickle<4 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:27.803+0000] {process_utils.py:191} INFO -   Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+[2025-12-30T17:32:27.970+0000] {process_utils.py:191} INFO - Collecting entrypoints<1 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:28.007+0000] {process_utils.py:191} INFO -   Downloading entrypoints-0.4-py3-none-any.whl.metadata (2.6 kB)
+[2025-12-30T17:32:28.144+0000] {process_utils.py:191} INFO - Collecting gitpython<4,>=2.1.0 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:28.203+0000] {process_utils.py:191} INFO -   Downloading gitpython-3.1.45-py3-none-any.whl.metadata (13 kB)
+[2025-12-30T17:32:28.350+0000] {process_utils.py:191} INFO - Collecting pyyaml<7,>=5.1 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:28.417+0000] {process_utils.py:191} INFO -   Downloading pyyaml-6.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+[2025-12-30T17:32:28.901+0000] {process_utils.py:191} INFO - Collecting protobuf<5,>=3.12.0 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:28.919+0000] {process_utils.py:191} INFO -   Downloading protobuf-4.25.8-cp37-abi3-manylinux2014_x86_64.whl.metadata (541 bytes)
+[2025-12-30T17:32:29.029+0000] {process_utils.py:191} INFO - Collecting pytz<2024 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:29.049+0000] {process_utils.py:191} INFO -   Downloading pytz-2023.4-py2.py3-none-any.whl.metadata (22 kB)
+[2025-12-30T17:32:29.145+0000] {process_utils.py:191} INFO - Collecting requests<3,>=2.17.3 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:29.161+0000] {process_utils.py:191} INFO -   Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+[2025-12-30T17:32:29.236+0000] {process_utils.py:191} INFO - Collecting packaging<24 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:29.255+0000] {process_utils.py:191} INFO -   Downloading packaging-23.2-py3-none-any.whl.metadata (3.2 kB)
+[2025-12-30T17:32:29.386+0000] {process_utils.py:191} INFO - Collecting importlib-metadata!=4.7.0,<8,>=3.7.0 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:29.403+0000] {process_utils.py:191} INFO -   Downloading importlib_metadata-7.2.1-py3-none-any.whl.metadata (4.6 kB)
+[2025-12-30T17:32:29.458+0000] {process_utils.py:191} INFO - Collecting sqlparse<1,>=0.4.0 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:29.476+0000] {process_utils.py:191} INFO -   Downloading sqlparse-0.5.5-py3-none-any.whl.metadata (4.7 kB)
+[2025-12-30T17:32:29.588+0000] {process_utils.py:191} INFO - Collecting alembic!=1.10.0,<2 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:29.605+0000] {process_utils.py:191} INFO -   Downloading alembic-1.17.2-py3-none-any.whl.metadata (7.2 kB)
+[2025-12-30T17:32:29.682+0000] {process_utils.py:191} INFO - Collecting docker<8,>=4.0.0 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:29.700+0000] {process_utils.py:191} INFO -   Downloading docker-7.1.0-py3-none-any.whl.metadata (3.8 kB)
+[2025-12-30T17:32:29.766+0000] {process_utils.py:191} INFO - Collecting Flask<4 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:29.783+0000] {process_utils.py:191} INFO -   Downloading flask-3.1.2-py3-none-any.whl.metadata (3.2 kB)
+[2025-12-30T17:32:30.252+0000] {process_utils.py:191} INFO - Collecting numpy<2 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:30.270+0000] {process_utils.py:191} INFO -   Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+[2025-12-30T17:32:30.289+0000] {process_utils.py:191} INFO -      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.0/61.0 kB 4.9 MB/s eta 0:00:00
+[2025-12-30T17:32:30.505+0000] {process_utils.py:191} INFO - Collecting scipy<2 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:30.522+0000] {process_utils.py:191} INFO -   Downloading scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+[2025-12-30T17:32:30.545+0000] {process_utils.py:191} INFO -      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.0/62.0 kB 3.1 MB/s eta 0:00:00
+[2025-12-30T17:32:30.610+0000] {process_utils.py:191} INFO - Collecting querystring-parser<2 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:30.628+0000] {process_utils.py:191} INFO -   Downloading querystring_parser-1.2.4-py2.py3-none-any.whl.metadata (559 bytes)
+[2025-12-30T17:32:31.202+0000] {process_utils.py:191} INFO - Collecting sqlalchemy<3,>=1.4.0 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:31.218+0000] {process_utils.py:191} INFO -   Downloading sqlalchemy-2.0.45-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (9.5 kB)
+[2025-12-30T17:32:31.428+0000] {process_utils.py:191} INFO - Collecting pyarrow<16,>=4.0.0 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:31.446+0000] {process_utils.py:191} INFO -   Downloading pyarrow-15.0.2-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+[2025-12-30T17:32:31.523+0000] {process_utils.py:191} INFO - Collecting markdown<4,>=3.3 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:31.540+0000] {process_utils.py:191} INFO -   Downloading markdown-3.10-py3-none-any.whl.metadata (5.1 kB)
+[2025-12-30T17:32:31.801+0000] {process_utils.py:191} INFO - Collecting matplotlib<4 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:31.818+0000] {process_utils.py:191} INFO -   Downloading matplotlib-3.10.8-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (52 kB)
+[2025-12-30T17:32:31.833+0000] {process_utils.py:191} INFO -      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 52.8/52.8 kB 5.6 MB/s eta 0:00:00
+[2025-12-30T17:32:31.894+0000] {process_utils.py:191} INFO - Collecting gunicorn<22 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:31.910+0000] {process_utils.py:191} INFO -   Downloading gunicorn-21.2.0-py3-none-any.whl.metadata (4.1 kB)
+[2025-12-30T17:32:31.982+0000] {process_utils.py:191} INFO - Collecting Jinja2<4,>=2.11 (from mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:32.003+0000] {process_utils.py:191} INFO -   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+[2025-12-30T17:32:32.067+0000] {process_utils.py:191} INFO - Collecting python-dateutil>=2.8.2 (from pandas->-r /tmp/venvnk8eyu8k/requirements.txt (line 2))
+[2025-12-30T17:32:32.085+0000] {process_utils.py:191} INFO -   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+[2025-12-30T17:32:32.156+0000] {process_utils.py:191} INFO - Collecting tzdata>=2022.7 (from pandas->-r /tmp/venvnk8eyu8k/requirements.txt (line 2))
+[2025-12-30T17:32:32.172+0000] {process_utils.py:191} INFO -   Downloading tzdata-2025.3-py2.py3-none-any.whl.metadata (1.4 kB)
+[2025-12-30T17:32:32.278+0000] {process_utils.py:191} INFO - Collecting joblib>=1.2.0 (from scikit-learn->-r /tmp/venvnk8eyu8k/requirements.txt (line 3))
+[2025-12-30T17:32:32.297+0000] {process_utils.py:191} INFO -   Downloading joblib-1.5.3-py3-none-any.whl.metadata (5.5 kB)
+[2025-12-30T17:32:32.356+0000] {process_utils.py:191} INFO - Collecting threadpoolctl>=3.1.0 (from scikit-learn->-r /tmp/venvnk8eyu8k/requirements.txt (line 3))
+[2025-12-30T17:32:32.374+0000] {process_utils.py:191} INFO -   Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+[2025-12-30T17:32:32.450+0000] {process_utils.py:191} INFO - Collecting Mako (from alembic!=1.10.0,<2->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:32.466+0000] {process_utils.py:191} INFO -   Downloading mako-1.3.10-py3-none-any.whl.metadata (2.9 kB)
+[2025-12-30T17:32:32.534+0000] {process_utils.py:191} INFO - Collecting typing-extensions>=4.12 (from alembic!=1.10.0,<2->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:32.550+0000] {process_utils.py:191} INFO -   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+[2025-12-30T17:32:32.612+0000] {process_utils.py:191} INFO - Collecting tomli (from alembic!=1.10.0,<2->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:32.630+0000] {process_utils.py:191} INFO -   Downloading tomli-2.3.0-py3-none-any.whl.metadata (10 kB)
+[2025-12-30T17:32:32.736+0000] {process_utils.py:191} INFO - Collecting urllib3>=1.26.0 (from docker<8,>=4.0.0->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:32.751+0000] {process_utils.py:191} INFO -   Downloading urllib3-2.6.2-py3-none-any.whl.metadata (6.6 kB)
+[2025-12-30T17:32:32.805+0000] {process_utils.py:191} INFO - Collecting blinker>=1.9.0 (from Flask<4->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:32.821+0000] {process_utils.py:191} INFO -   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+[2025-12-30T17:32:32.895+0000] {process_utils.py:191} INFO - Collecting itsdangerous>=2.2.0 (from Flask<4->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:32.913+0000] {process_utils.py:191} INFO -   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+[2025-12-30T17:32:33.110+0000] {process_utils.py:191} INFO - Collecting markupsafe>=2.1.1 (from Flask<4->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:33.130+0000] {process_utils.py:191} INFO -   Downloading markupsafe-3.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+[2025-12-30T17:32:33.204+0000] {process_utils.py:191} INFO - Collecting werkzeug>=3.1.0 (from Flask<4->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:33.230+0000] {process_utils.py:191} INFO -   Downloading werkzeug-3.1.4-py3-none-any.whl.metadata (4.0 kB)
+[2025-12-30T17:32:33.282+0000] {process_utils.py:191} INFO - Collecting gitdb<5,>=4.0.1 (from gitpython<4,>=2.1.0->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:33.300+0000] {process_utils.py:191} INFO -   Downloading gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
+[2025-12-30T17:32:33.397+0000] {process_utils.py:191} INFO - Collecting zipp>=0.5 (from importlib-metadata!=4.7.0,<8,>=3.7.0->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:33.416+0000] {process_utils.py:191} INFO -   Downloading zipp-3.23.0-py3-none-any.whl.metadata (3.6 kB)
+[2025-12-30T17:32:33.589+0000] {process_utils.py:191} INFO - Collecting contourpy>=1.0.1 (from matplotlib<4->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:33.607+0000] {process_utils.py:191} INFO -   Downloading contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.5 kB)
+[2025-12-30T17:32:33.656+0000] {process_utils.py:191} INFO - Collecting cycler>=0.10 (from matplotlib<4->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:33.674+0000] {process_utils.py:191} INFO -   Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+[2025-12-30T17:32:33.981+0000] {process_utils.py:191} INFO - Collecting fonttools>=4.22.0 (from matplotlib<4->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:34.013+0000] {process_utils.py:191} INFO -   Downloading fonttools-4.61.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (114 kB)
+[2025-12-30T17:32:34.046+0000] {process_utils.py:191} INFO -      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 114.2/114.2 kB 4.0 MB/s eta 0:00:00
+[2025-12-30T17:32:34.180+0000] {process_utils.py:191} INFO - Collecting kiwisolver>=1.3.1 (from matplotlib<4->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:34.210+0000] {process_utils.py:191} INFO -   Downloading kiwisolver-1.4.9-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (6.3 kB)
+[2025-12-30T17:32:34.623+0000] {process_utils.py:191} INFO - Collecting pillow>=8 (from matplotlib<4->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:34.638+0000] {process_utils.py:191} INFO -   Downloading pillow-12.0.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.8 kB)
+[2025-12-30T17:32:34.725+0000] {process_utils.py:191} INFO - Collecting pyparsing>=3 (from matplotlib<4->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:34.742+0000] {process_utils.py:191} INFO -   Downloading pyparsing-3.3.1-py3-none-any.whl.metadata (5.6 kB)
+[2025-12-30T17:32:34.813+0000] {process_utils.py:191} INFO - Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas->-r /tmp/venvnk8eyu8k/requirements.txt (line 2))
+[2025-12-30T17:32:34.829+0000] {process_utils.py:191} INFO -   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+[2025-12-30T17:32:35.006+0000] {process_utils.py:191} INFO - Collecting charset_normalizer<4,>=2 (from requests<3,>=2.17.3->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:35.028+0000] {process_utils.py:191} INFO -   Downloading charset_normalizer-3.4.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (37 kB)
+[2025-12-30T17:32:35.088+0000] {process_utils.py:191} INFO - Collecting idna<4,>=2.5 (from requests<3,>=2.17.3->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:35.105+0000] {process_utils.py:191} INFO -   Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+[2025-12-30T17:32:35.181+0000] {process_utils.py:191} INFO - Collecting certifi>=2017.4.17 (from requests<3,>=2.17.3->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:35.196+0000] {process_utils.py:191} INFO -   Downloading certifi-2025.11.12-py3-none-any.whl.metadata (2.5 kB)
+[2025-12-30T17:32:35.446+0000] {process_utils.py:191} INFO - Collecting greenlet>=1 (from sqlalchemy<3,>=1.4.0->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:35.464+0000] {process_utils.py:191} INFO -   Downloading greenlet-3.3.0-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (4.1 kB)
+[2025-12-30T17:32:35.532+0000] {process_utils.py:191} INFO - Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->gitpython<4,>=2.1.0->mlflow==2.10.2->-r /tmp/venvnk8eyu8k/requirements.txt (line 1))
+[2025-12-30T17:32:35.549+0000] {process_utils.py:191} INFO -   Downloading smmap-5.0.2-py3-none-any.whl.metadata (4.3 kB)
+[2025-12-30T17:32:35.609+0000] {process_utils.py:191} INFO - Downloading mlflow-2.10.2-py3-none-any.whl (19.5 MB)
+[2025-12-30T17:32:37.683+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 19.5/19.5 MB 9.2 MB/s eta 0:00:00
+[2025-12-30T17:32:37.700+0000] {process_utils.py:191} INFO - Downloading pandas-2.3.3-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.8 MB)
+[2025-12-30T17:32:39.068+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 9.3 MB/s eta 0:00:00
+[2025-12-30T17:32:39.092+0000] {process_utils.py:191} INFO - Downloading scikit_learn-1.7.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.7 MB)
+[2025-12-30T17:32:40.142+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.7/9.7 MB 9.2 MB/s eta 0:00:00
+[2025-12-30T17:32:40.161+0000] {process_utils.py:191} INFO - Downloading alembic-1.17.2-py3-none-any.whl (248 kB)
+[2025-12-30T17:32:40.198+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 248.6/248.6 kB 7.5 MB/s eta 0:00:00
+[2025-12-30T17:32:40.214+0000] {process_utils.py:191} INFO - Downloading click-8.3.1-py3-none-any.whl (108 kB)
+[2025-12-30T17:32:40.239+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 108.3/108.3 kB 5.3 MB/s eta 0:00:00
+[2025-12-30T17:32:40.261+0000] {process_utils.py:191} INFO - Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+[2025-12-30T17:32:40.296+0000] {process_utils.py:191} INFO - Downloading docker-7.1.0-py3-none-any.whl (147 kB)
+[2025-12-30T17:32:40.333+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 147.8/147.8 kB 5.6 MB/s eta 0:00:00
+[2025-12-30T17:32:40.894+0000] {process_utils.py:191} INFO - Downloading entrypoints-0.4-py3-none-any.whl (5.3 kB)
+[2025-12-30T17:32:41.642+0000] {process_utils.py:191} INFO - Downloading flask-3.1.2-py3-none-any.whl (103 kB)
+[2025-12-30T17:32:41.670+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 103.3/103.3 kB 4.5 MB/s eta 0:00:00
+[2025-12-30T17:32:41.686+0000] {process_utils.py:191} INFO - Downloading gitpython-3.1.45-py3-none-any.whl (208 kB)
+[2025-12-30T17:32:41.720+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 208.2/208.2 kB 7.4 MB/s eta 0:00:00
+[2025-12-30T17:32:41.744+0000] {process_utils.py:191} INFO - Downloading gunicorn-21.2.0-py3-none-any.whl (80 kB)
+[2025-12-30T17:32:41.768+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.2/80.2 kB 3.9 MB/s eta 0:00:00
+[2025-12-30T17:32:41.793+0000] {process_utils.py:191} INFO - Downloading importlib_metadata-7.2.1-py3-none-any.whl (25 kB)
+[2025-12-30T17:32:41.828+0000] {process_utils.py:191} INFO - Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+[2025-12-30T17:32:41.860+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 5.0 MB/s eta 0:00:00
+[2025-12-30T17:32:41.879+0000] {process_utils.py:191} INFO - Downloading joblib-1.5.3-py3-none-any.whl (309 kB)
+[2025-12-30T17:32:41.935+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 309.1/309.1 kB 6.3 MB/s eta 0:00:00
+[2025-12-30T17:32:41.956+0000] {process_utils.py:191} INFO - Downloading markdown-3.10-py3-none-any.whl (107 kB)
+[2025-12-30T17:32:41.997+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 107.7/107.7 kB 2.8 MB/s eta 0:00:00
+[2025-12-30T17:32:42.028+0000] {process_utils.py:191} INFO - Downloading matplotlib-3.10.8-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+[2025-12-30T17:32:42.963+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 9.3 MB/s eta 0:00:00
+[2025-12-30T17:32:42.980+0000] {process_utils.py:191} INFO - Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
+[2025-12-30T17:32:44.913+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.2/18.2 MB 9.2 MB/s eta 0:00:00
+[2025-12-30T17:32:44.930+0000] {process_utils.py:191} INFO - Downloading packaging-23.2-py3-none-any.whl (53 kB)
+[2025-12-30T17:32:44.947+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.0/53.0 kB 3.4 MB/s eta 0:00:00
+[2025-12-30T17:32:44.964+0000] {process_utils.py:191} INFO - Downloading protobuf-4.25.8-cp37-abi3-manylinux2014_x86_64.whl (294 kB)
+[2025-12-30T17:32:45.023+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 294.9/294.9 kB 5.8 MB/s eta 0:00:00
+[2025-12-30T17:32:45.044+0000] {process_utils.py:191} INFO - Downloading pyarrow-15.0.2-cp310-cp310-manylinux_2_28_x86_64.whl (38.3 MB)
+[2025-12-30T17:32:49.159+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 38.3/38.3 MB 8.2 MB/s eta 0:00:00
+[2025-12-30T17:32:49.178+0000] {process_utils.py:191} INFO - Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+[2025-12-30T17:32:49.233+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 4.5 MB/s eta 0:00:00
+[2025-12-30T17:32:49.252+0000] {process_utils.py:191} INFO - Downloading pytz-2023.4-py2.py3-none-any.whl (506 kB)
+[2025-12-30T17:32:49.333+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 506.5/506.5 kB 6.6 MB/s eta 0:00:00
+[2025-12-30T17:32:49.351+0000] {process_utils.py:191} INFO - Downloading pyyaml-6.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (770 kB)
+[2025-12-30T17:32:49.441+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 770.3/770.3 kB 9.3 MB/s eta 0:00:00
+[2025-12-30T17:32:49.461+0000] {process_utils.py:191} INFO - Downloading querystring_parser-1.2.4-py2.py3-none-any.whl (7.9 kB)
+[2025-12-30T17:32:49.491+0000] {process_utils.py:191} INFO - Downloading requests-2.32.5-py3-none-any.whl (64 kB)
+[2025-12-30T17:32:49.511+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 64.7/64.7 kB 3.3 MB/s eta 0:00:00
+[2025-12-30T17:32:49.529+0000] {process_utils.py:191} INFO - Downloading scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+[2025-12-30T17:32:53.591+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 8.1 MB/s eta 0:00:00
+[2025-12-30T17:32:53.613+0000] {process_utils.py:191} INFO - Downloading sqlalchemy-2.0.45-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (3.2 MB)
+[2025-12-30T17:32:53.961+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 9.4 MB/s eta 0:00:00
+[2025-12-30T17:32:53.980+0000] {process_utils.py:191} INFO - Downloading sqlparse-0.5.5-py3-none-any.whl (46 kB)
+[2025-12-30T17:32:53.995+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.1/46.1 kB 3.5 MB/s eta 0:00:00
+[2025-12-30T17:32:54.014+0000] {process_utils.py:191} INFO - Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+[2025-12-30T17:32:54.050+0000] {process_utils.py:191} INFO - Downloading tzdata-2025.3-py2.py3-none-any.whl (348 kB)
+[2025-12-30T17:32:54.102+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 348.5/348.5 kB 7.2 MB/s eta 0:00:00
+[2025-12-30T17:32:54.122+0000] {process_utils.py:191} INFO - Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+[2025-12-30T17:32:54.155+0000] {process_utils.py:191} INFO - Downloading certifi-2025.11.12-py3-none-any.whl (159 kB)
+[2025-12-30T17:32:54.188+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 159.4/159.4 kB 5.8 MB/s eta 0:00:00
+[2025-12-30T17:32:54.210+0000] {process_utils.py:191} INFO - Downloading charset_normalizer-3.4.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (153 kB)
+[2025-12-30T17:32:54.240+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 153.6/153.6 kB 5.7 MB/s eta 0:00:00
+[2025-12-30T17:32:54.267+0000] {process_utils.py:191} INFO - Downloading contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (325 kB)
+[2025-12-30T17:32:54.312+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 325.0/325.0 kB 8.2 MB/s eta 0:00:00
+[2025-12-30T17:32:54.331+0000] {process_utils.py:191} INFO - Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+[2025-12-30T17:32:54.358+0000] {process_utils.py:191} INFO - Downloading fonttools-4.61.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.9 MB)
+[2025-12-30T17:32:54.876+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 9.4 MB/s eta 0:00:00
+[2025-12-30T17:32:54.893+0000] {process_utils.py:191} INFO - Downloading gitdb-4.0.12-py3-none-any.whl (62 kB)
+[2025-12-30T17:32:54.911+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 4.0 MB/s eta 0:00:00
+[2025-12-30T17:32:54.928+0000] {process_utils.py:191} INFO - Downloading greenlet-3.3.0-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (586 kB)
+[2025-12-30T17:32:55.002+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 586.9/586.9 kB 8.4 MB/s eta 0:00:00
+[2025-12-30T17:32:55.017+0000] {process_utils.py:191} INFO - Downloading idna-3.11-py3-none-any.whl (71 kB)
+[2025-12-30T17:32:55.037+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 71.0/71.0 kB 4.3 MB/s eta 0:00:00
+[2025-12-30T17:32:55.057+0000] {process_utils.py:191} INFO - Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+[2025-12-30T17:32:55.095+0000] {process_utils.py:191} INFO - Downloading kiwisolver-1.4.9-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+[2025-12-30T17:32:55.270+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 9.7 MB/s eta 0:00:00
+[2025-12-30T17:32:55.286+0000] {process_utils.py:191} INFO - Downloading markupsafe-3.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (20 kB)
+[2025-12-30T17:32:55.311+0000] {process_utils.py:191} INFO - Downloading pillow-12.0.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.0 MB)
+[2025-12-30T17:32:56.064+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.0/7.0 MB 9.4 MB/s eta 0:00:00
+[2025-12-30T17:32:56.082+0000] {process_utils.py:191} INFO - Downloading pyparsing-3.3.1-py3-none-any.whl (121 kB)
+[2025-12-30T17:32:56.105+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 121.8/121.8 kB 5.9 MB/s eta 0:00:00
+[2025-12-30T17:32:56.123+0000] {process_utils.py:191} INFO - Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+[2025-12-30T17:32:56.144+0000] {process_utils.py:191} INFO - Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+[2025-12-30T17:32:56.165+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.6/44.6 kB 2.8 MB/s eta 0:00:00
+[2025-12-30T17:32:56.193+0000] {process_utils.py:191} INFO - Downloading urllib3-2.6.2-py3-none-any.whl (131 kB)
+[2025-12-30T17:32:56.220+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 131.2/131.2 kB 5.8 MB/s eta 0:00:00
+[2025-12-30T17:32:56.237+0000] {process_utils.py:191} INFO - Downloading werkzeug-3.1.4-py3-none-any.whl (224 kB)
+[2025-12-30T17:32:56.277+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 225.0/225.0 kB 6.3 MB/s eta 0:00:00
+[2025-12-30T17:32:56.297+0000] {process_utils.py:191} INFO - Downloading zipp-3.23.0-py3-none-any.whl (10 kB)
+[2025-12-30T17:32:56.332+0000] {process_utils.py:191} INFO - Downloading mako-1.3.10-py3-none-any.whl (78 kB)
+[2025-12-30T17:32:56.363+0000] {process_utils.py:191} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.5/78.5 kB 2.8 MB/s eta 0:00:00
+[2025-12-30T17:32:56.384+0000] {process_utils.py:191} INFO - Downloading tomli-2.3.0-py3-none-any.whl (14 kB)
+[2025-12-30T17:32:56.417+0000] {process_utils.py:191} INFO - Downloading smmap-5.0.2-py3-none-any.whl (24 kB)
+[2025-12-30T17:32:57.003+0000] {process_utils.py:191} INFO - Installing collected packages: pytz, zipp, urllib3, tzdata, typing-extensions, tomli, threadpoolctl, sqlparse, smmap, six, pyyaml, pyparsing, protobuf, pillow, packaging, numpy, markupsafe, markdown, kiwisolver, joblib, itsdangerous, idna, greenlet, fonttools, entrypoints, cycler, cloudpickle, click, charset_normalizer, certifi, blinker, werkzeug, sqlalchemy, scipy, requests, querystring-parser, python-dateutil, pyarrow, Mako, Jinja2, importlib-metadata, gunicorn, gitdb, contourpy, scikit-learn, pandas, matplotlib, gitpython, Flask, docker, alembic, mlflow
+[2025-12-30T17:33:22.069+0000] {process_utils.py:191} INFO - Successfully installed Flask-3.1.2 Jinja2-3.1.6 Mako-1.3.10 alembic-1.17.2 blinker-1.9.0 certifi-2025.11.12 charset_normalizer-3.4.4 click-8.3.1 cloudpickle-3.1.2 contourpy-1.3.2 cycler-0.12.1 docker-7.1.0 entrypoints-0.4 fonttools-4.61.1 gitdb-4.0.12 gitpython-3.1.45 greenlet-3.3.0 gunicorn-21.2.0 idna-3.11 importlib-metadata-7.2.1 itsdangerous-2.2.0 joblib-1.5.3 kiwisolver-1.4.9 markdown-3.10 markupsafe-3.0.3 matplotlib-3.10.8 mlflow-2.10.2 numpy-1.26.4 packaging-23.2 pandas-2.3.3 pillow-12.0.0 protobuf-4.25.8 pyarrow-15.0.2 pyparsing-3.3.1 python-dateutil-2.9.0.post0 pytz-2023.4 pyyaml-6.0.3 querystring-parser-1.2.4 requests-2.32.5 scikit-learn-1.7.2 scipy-1.15.3 six-1.17.0 smmap-5.0.2 sqlalchemy-2.0.45 sqlparse-0.5.5 threadpoolctl-3.6.0 tomli-2.3.0 typing-extensions-4.15.0 tzdata-2025.3 urllib3-2.6.2 werkzeug-3.1.4 zipp-3.23.0
+[2025-12-30T17:33:22.211+0000] {process_utils.py:191} INFO - 
+[2025-12-30T17:33:22.211+0000] {process_utils.py:191} INFO - [notice] A new release of pip is available: 24.1 -> 25.3
+[2025-12-30T17:33:22.212+0000] {process_utils.py:191} INFO - [notice] To update, run: python -m pip install --upgrade pip
+[2025-12-30T17:33:23.262+0000] {process_utils.py:183} INFO - Executing cmd: /tmp/venvnk8eyu8k/bin/python /tmp/venv-call4ehnyfjr/script.py /tmp/venv-call4ehnyfjr/script.in /tmp/venv-call4ehnyfjr/script.out /tmp/venv-call4ehnyfjr/string_args.txt /tmp/venv-call4ehnyfjr/termination.log
+[2025-12-30T17:33:23.264+0000] {process_utils.py:187} INFO - Output:
+[2025-12-30T17:33:23.361+0000] {process_utils.py:191} INFO - Traceback (most recent call last):
+[2025-12-30T17:33:23.363+0000] {process_utils.py:191} INFO -   File "/tmp/venv-call4ehnyfjr/script.py", line 50, in <module>
+[2025-12-30T17:33:23.364+0000] {process_utils.py:191} INFO -     res = train_wrapper(*arg_dict["args"], **arg_dict["kwargs"])
+[2025-12-30T17:33:23.365+0000] {process_utils.py:191} INFO -   File "/tmp/venv-call4ehnyfjr/script.py", line 20, in train_wrapper
+[2025-12-30T17:33:23.366+0000] {process_utils.py:191} INFO -     sys.path.append(ML_CODE_PATH)
+[2025-12-30T17:33:23.367+0000] {process_utils.py:191} INFO - NameError: name 'ML_CODE_PATH' is not defined
+[2025-12-30T17:33:23.876+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-30T17:33:23.902+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 437, in execute
+    return super().execute(context=serializable_context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 759, in execute_callable
+    result = self._execute_python_callable_in_subprocess(python_path)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 514, in _execute_python_callable_in_subprocess
+    raise AirflowException(error_msg) from None
+airflow.exceptions.AirflowException: Process returned non-zero exit status 1.
+name 'ML_CODE_PATH' is not defined
+[2025-12-30T17:33:23.908+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=train_model_sample, task_id=train_model, run_id=manual__2025-12-30T17:32:19.776072+00:00, execution_date=20251230T173219, start_date=20251230T173220, end_date=20251230T173323
+[2025-12-30T17:33:23.930+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 2 for task train_model (Process returned non-zero exit status 1.
+name 'ML_CODE_PATH' is not defined; 310)
+[2025-12-30T17:33:23.965+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2025-12-30T17:33:24.002+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T17:33:24.008+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

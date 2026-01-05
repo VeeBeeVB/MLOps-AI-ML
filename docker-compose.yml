@@ -1,0 +1,88 @@
+version: "3.9"
+
+services:
+  # ----------------------
+  # MLflow
+  # ----------------------
+  mlflow-db:
+    image: postgres:13
+    container_name: mlflow-db
+    environment:
+      POSTGRES_USER: mlflow
+      POSTGRES_PASSWORD: mlflow
+      POSTGRES_DB: mlflow
+    volumes:
+      - mlflow-db-data:/var/lib/postgresql/data
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.10.2
+    container_name: mlflow
+    depends_on:
+      - mlflow-db
+    ports:
+      - "5000:5000"
+    environment:
+      MLFLOW_BACKEND_STORE_URI: postgresql+psycopg2://mlflow:mlflow@mlflow-db/mlflow
+      MLFLOW_DEFAULT_ARTIFACT_ROOT: /mlflow/artifacts
+    volumes:
+      - ./mlflow/artifacts:/mlflow/artifacts
+    command: >
+      sh -c "
+      pip install --no-cache-dir psycopg2-binary &&
+      mlflow server
+      --host 0.0.0.0
+      --port 5000
+      "
+  # ----------------------
+  # Airflow
+  # ----------------------
+  airflow-db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - airflow-db-data:/var/lib/postgresql/data
+
+  airflow-webserver:
+    image: apache/airflow:2.9.3-python3.10
+    # image: apache/airflow:3.1.5-python3.10
+    depends_on:
+      - airflow-db
+      - mlflow
+    ports:
+      - "8080:8080"
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-db/airflow
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./mlflow_models:/opt/airflow/mlflow_models
+    command: >
+      bash -c "
+      pip install --no-cache-dir mlflow==2.10.2 scikit-learn pandas && airflow webserver "
+
+  airflow-scheduler:
+    image: apache/airflow:2.9.3-python3.10
+    depends_on:
+      - airflow-webserver
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-db/airflow
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./mlflow_models:/opt/airflow/mlflow_models
+    command: >
+      bash -c "
+      pip install --no-cache-dir mlflow==2.10.2 scikit-learn pandas && airflow scheduler "
+
+volumes:
+  mlflow-db-data:
+  airflow-db-data:
+
